@@ -44,8 +44,13 @@
   }
 
   button:hover {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
     cursor: pointer;
+  }
+
+  button:active {
+    transition: transform 0.1s ease;
+    transform: translateY(-5px);
   }
 
   audio { display: none; }
@@ -54,7 +59,7 @@
 <div class="photo-container">
   <img src="./ushichki.jpeg"></img>
   <div class="shadow-wrapper">
-    <button onclick=playAudio() type="button"></button>
+    <button onclick="playAudio()" type="button"></button>
   </div>
 </div>
 
