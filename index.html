@@ -1,1 +1,80 @@
-<h1>Hello there</h1>
+<style>
+  body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .photo-container {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    position: relative;
+  }
+
+  img {
+    width: 400px;
+  }
+
+  .shadow-wrapper {
+    position: absolute;
+    top: calc(50% - 180px);
+    transition: filter 0.5s ease;
+  }
+
+  .shadow-wrapper:hover {
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+  }
+
+  button {
+    border: none;
+    width: 400px;
+    height: 400px;
+    background-size: 400px;
+    background-position: 0px -82px;
+    clip-path: circle(180px at center);
+    background-image: url(./ushichki.jpeg);
+    transition: transform 0.6s ease;
+  }
+
+  button:hover {
+    transform: translateY(-20px);
+    cursor: pointer;
+  }
+
+  audio { display: none; }
+</style>
+
+<div class="photo-container">
+  <img src="./ushichki.jpeg"></img>
+  <div class="shadow-wrapper">
+    <button onclick=playAudio() type="button"></button>
+  </div>
+</div>
+
+<audio id="audio" controls>
+  <source src="./Deni_Is_Here_And_She_Is_Eating_Our_Ears.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  var x = document.getElementById("audio");
+  x.loop = true;
+
+  function playAudio() {
+    if (x.paused) {
+      x.play();
+    } else {
+      pauseAudio();
+    }
+  }
+
+  function pauseAudio() {
+    x.pause();
+  }
+</script>
